@@ -18,11 +18,14 @@ body{
 margin:0;
 background:#ffffff;
 font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
 text-align:center;
+color:#111;
+}
+
+main{
+max-width:640px;
+margin:auto;
+padding:80px 24px;
 }
 
 .logo{
@@ -42,13 +45,39 @@ font-size:14px;
 color:#666;
 }
 
+.section{
+margin-top:80px;
+}
+
+.section-title{
+font-size:16px;
+font-weight:600;
+letter-spacing:0.12em;
+margin-bottom:24px;
+}
+
+.definition{
+line-height:2;
+}
+
+.rule{
+margin-top:20px;
+line-height:1.8;
+}
+
+footer{
+margin-top:80px;
+font-size:12px;
+color:#999;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div>
+<main>
 
 <img class="logo" src="enso.PNG" alt="SOVAT">
 
@@ -60,7 +89,62 @@ SOVAT
 Make happiness.
 </div>
 
+
+<div class="section">
+
+<div class="section-title">
+SOVATとは
 </div>
+
+<div class="definition">
+Single Player<br>
+Offline<br>
+Valuable<br>
+Application<br>
+Technology
+</div>
+
+<p>
+SOVATはこれらの頭文字を合わせた概念です。
+</p>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+SOVAT 五ヶ条
+</div>
+
+<div class="rule">
+一　ユーザーを追いかけない。プロダクトを置く。
+</div>
+
+<div class="rule">
+二　押し売り営業をしない。
+</div>
+
+<div class="rule">
+三　バックエンドサービスを実装しない。
+</div>
+
+<div class="rule">
+四　マスターピースのみ公開する。
+</div>
+
+<div class="rule">
+五　SOVATの意味を忘れない。
+</div>
+
+</div>
+
+
+<footer>
+© SOVAT
+</footer>
+
+</main>
 
 </body>
 
