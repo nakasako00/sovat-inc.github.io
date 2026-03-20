@@ -1,724 +1,204 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOVAT Inc.</title>
-  <meta name="description" content="SOVAT Inc. Official Site" />
-  <style>
-    :root {
-      --bg: #05070b;
-      --bg-soft: #0b1220;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-border: rgba(255, 255, 255, 0.12);
-      --text: #f5f7fb;
-      --text-soft: rgba(245, 247, 251, 0.74);
-      --accent: #57b8ff;
-      --accent-soft: rgba(87, 184, 255, 0.16);
-      --max-width: 1120px;
-      --radius: 18px;
-      --shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top, rgba(87, 184, 255, 0.12), transparent 32%),
-        linear-gradient(180deg, #07111f 0%, var(--bg) 28%, var(--bg) 100%);
-      color: var(--text);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        "Segoe UI",
-        "Hiragino Sans",
-        "Hiragino Kaku Gothic ProN",
-        "Yu Gothic UI",
-        Meiryo,
-        sans-serif;
-      line-height: 1.7;
-      letter-spacing: 0.02em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max-width));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(5, 7, 11, 0.62);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .site-header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 64px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .brand__mark {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #9bd8ff 0%, var(--accent) 100%);
-      box-shadow: 0 0 16px rgba(87, 184, 255, 0.5);
-      flex: 0 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--text-soft);
-      font-size: 0.95rem;
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 88px 0 56px;
-    }
-
-    .hero__grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--panel-border);
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #cfeaff;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin: 18px 0 10px;
-      font-size: clamp(2.3rem, 5vw, 4.8rem);
-      line-height: 1.04;
-      letter-spacing: 0.02em;
-    }
-
-    .hero__tagline {
-      margin: 0 0 16px;
-      font-size: clamp(1rem, 1.8vw, 1.18rem);
-      color: var(--text-soft);
-    }
-
-    .hero__lead {
-      margin: 0;
-      max-width: 42rem;
-      color: var(--text-soft);
-      font-size: 1rem;
-    }
-
-    .hero__card {
-      position: relative;
-      overflow: hidden;
-      border-radius: calc(var(--radius) + 8px);
-      border: 1px solid var(--panel-border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      box-shadow: var(--shadow);
-    }
-
-    .hero__card img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-
-    .hero__card-caption {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(4, 10, 18, 0.68);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .hero__card-caption strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 1rem;
-    }
-
-    .hero__card-caption span {
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.92rem;
-    }
-
-    .section {
-      padding: 28px 0 72px;
-    }
-
-    .section__head {
-      margin-bottom: 20px;
-    }
-
-    .section__kicker {
-      display: inline-block;
-      color: #bfe4ff;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .section h2 {
-      margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.2;
-    }
-
-    .section__lead {
-      margin: 10px 0 0;
-      color: var(--text-soft);
-      max-width: 48rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .panel h3 {
-      margin: 0 0 10px;
-      font-size: 1.08rem;
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--text-soft);
-      margin: 0;
-    }
-
-    .panel ul {
-      margin: 0;
-      padding-left: 1.2rem;
-      display: grid;
-      gap: 10px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
-      align-items: start;
-    }
-
-    .project-copy {
-      display: grid;
-      gap: 20px;
-    }
-
-    .project-copy__main {
-      padding: 26px;
-    }
-
-    .project-copy__main p {
-      margin: 0;
-    }
-
-    .project-stats {
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat {
-      padding: 18px 20px;
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text);
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .visual-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .visual-card img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-
-    .visual-card__body {
-      padding: 16px 18px 18px;
-    }
-
-    .visual-card__title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0 0 6px;
-    }
-
-    .visual-card__text {
-      margin: 0;
-      color: var(--text-soft);
-      font-size: 0.95rem;
-    }
-
-    .character {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .character__image {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .character__image img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-
-    .character__body {
-      display: grid;
-      gap: 16px;
-      align-content: start;
-    }
-
-    .character__meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .meta-item {
-      padding: 16px 18px;
-    }
-
-    .meta-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #d4eeff;
-    }
-
-    .meta-item span {
-      color: var(--text-soft);
-      font-size: 0.95rem;
-    }
-
-    .site-footer {
-      padding: 28px 0 44px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.54);
-      font-size: 0.92rem;
-    }
-
-    .site-footer__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .site-footer__links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .site-footer__links a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 920px) {
-      .hero__grid,
-      .project-grid,
-      .character,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 64px;
-      }
-
-      .character__meta {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .site-header__inner {
-        min-height: 58px;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .panel,
-      .project-copy__main,
-      .stat,
-      .meta-item {
-        padding: 18px;
-      }
-
-      .hero__card-caption {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        padding: 12px 14px;
-      }
-    }
-  </style>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SOVAT</title>
+<meta name="description" content="SOVAT">
+
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.PNG">
+
+<style>
+
+body{
+margin:0;
+background:#ffffff;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+text-align:center;
+color:#111;
+}
+
+main{
+max-width:640px;
+margin:auto;
+padding:80px 24px;
+}
+
+.logo{
+width:200px;
+margin-bottom:32px;
+}
+
+.title{
+font-size:28px;
+font-weight:600;
+letter-spacing:0.08em;
+}
+
+.tagline{
+margin-top:16px;
+font-size:14px;
+color:#666;
+}
+
+.section{
+margin-top:72px;
+}
+
+.section-title{
+font-size:16px;
+font-weight:600;
+letter-spacing:0.12em;
+margin-bottom:28px;
+}
+
+.sovat-letters{
+line-height:2.1;
+font-size:18px;
+}
+
+.rule{
+margin-top:28px;
+line-height:1.9;
+}
+
+.rule-number{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.project-title{
+font-size:22px;
+font-weight:600;
+letter-spacing:0.04em;
+margin-bottom:20px;
+}
+
+.project-visual{
+display:block;
+width:100%;
+max-width:420px;
+height:auto;
+margin:0 auto 24px;
+}
+
+.project-text{
+line-height:1.9;
+}
+
+footer{
+margin-top:80px;
+font-size:12px;
+color:#999;
+}
+
+</style>
+
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="#" class="brand" aria-label="SOVAT Inc.">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span>SOVAT</span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#principles">Principles</a>
-        <a href="#project">Current Project</a>
-        <a href="#character">Character</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <div class="eyebrow">SOVAT Inc.</div>
-          <h1>SOVAT</h1>
-          <p class="hero__tagline">Make happiness.</p>
-          <p class="hero__lead">
-            幸福を作るためのデジタル工房。
-            ヒットを探さない。価値を鍛える。
-            マスターピースのみを世に出す。
-          </p>
-        </div>
+<main>
 
-        <div class="hero__card">
-          <img
-            src="./assets/images/saphiness-kv-01.PNG"
-            alt="Saphiness key visual"
-          />
-          <div class="hero__card-caption">
-            <strong>Current Project: Saphiness</strong>
-            <span>波乗りの感覚を、触覚で呼び戻す。</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<img class="logo" src="enso.PNG" alt="SOVAT">
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="section__kicker">About</span>
-          <h2>SOVATとは</h2>
-          <p class="section__lead">
-            小さく、軽く、価値あるソフトウェアを作る。
-            SOVATは、幸福を作るためのデジタル工房である。
-          </p>
-        </div>
+<div class="title">
+SOVAT
+</div>
 
-        <div class="grid-2">
-          <article class="panel">
-            <h3>Visual / Non-Visual</h3>
-            <p>
-              視覚だけに頼らず、体験そのものの価値を鍛える。
-              SOVATは、表現ではなく手触りの核心を作る。
-            </p>
-          </article>
+<div class="tagline">
+Make happiness.
+</div>
 
-          <article class="panel">
-            <h3>Masterpiece Only</h3>
-            <p>
-              量産しない。拡張しすぎない。
-              研ぎ澄ませた一作だけを、静かに世へ出す。
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section id="principles" class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="section__kicker">Principles</span>
-          <h2>SOVAT 五ヶ条</h2>
-        </div>
+<div class="section">
 
-        <article class="panel">
-          <ul>
-            <li>バックエンドサービスを実装しない。</li>
-            <li>基本プレイ無料のガチャゲーを作らない。</li>
-            <li>ゲームループより、価値の密度を優先する。</li>
-            <li>小さいソフト、軽いソフトを志向する。</li>
-            <li>マスターピースのみを公開する。</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+<div class="section-title">
+SOVATとは
+</div>
 
-    <section id="project" class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="section__kicker">Current Project</span>
-          <h2>Saphiness</h2>
-          <p class="section__lead">
-            波乗りの感覚を、触覚で呼び戻す。
-            視覚に依存しすぎない、Non-Visual SOVAT。
-          </p>
-        </div>
+<div class="sovat-letters">
 
-        <div class="project-grid">
-          <div class="project-copy">
-            <article class="panel project-copy__main">
-              <p>
-                Saphinessは、スマートフォンの振動機能を主軸とした触覚体験ソフトである。
-                波、間、集中、反応。
-                画面より先に、身体へ届く体験を目指す。
-              </p>
-            </article>
+S　Single Player<br>
+O　Offline<br>
+V　Valuable<br>
+A　Application<br>
+T　Technology
 
-            <div class="grid-2">
-              <article class="panel stat">
-                <strong>Concept</strong>
-                <span>Touch / Wave / Haptics</span>
-              </article>
+</div>
 
-              <article class="panel stat">
-                <strong>Category</strong>
-                <span>Non-Visual SOVAT</span>
-              </article>
+<p>
+SOVATはこれらの頭文字を合わせた概念です。
+</p>
 
-              <article class="panel stat">
-                <strong>Status</strong>
-                <span>Current Project</span>
-              </article>
+</div>
 
-              <article class="panel stat">
-                <strong>Theme</strong>
-                <span>静かな集中と触覚の波</span>
-              </article>
-            </div>
-          </div>
 
-          <article class="panel visual-card">
-            <img
-              src="./assets/images/saphiness-kv-02.PNG"
-              alt="Saphiness surfing visual"
-            />
-            <div class="visual-card__body">
-              <p class="visual-card__title">Body reacts before words.</p>
-              <p class="visual-card__text">
-                サーフィンの動きそのものではなく、
-                波に対して身体が応答する感覚を描く。
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="section">
 
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="section__kicker">Key Visuals</span>
-          <h2>Image Visuals</h2>
-          <p class="section__lead">
-            顔、動き、観測。
-            Saphinessを伝えるための三つの視点。
-          </p>
-        </div>
+<div class="section-title">
+SOVAT 五ヶ条
+</div>
 
-        <div class="grid-3">
-          <article class="panel visual-card">
-            <img
-              src="./assets/images/saphiness-kv-01.PNG"
-              alt="Yamabuki Satsuki standing key visual"
-            />
-            <div class="visual-card__body">
-              <p class="visual-card__title">Guide</p>
-              <p class="visual-card__text">
-                山吹五月。海の家の娘。
-                波と人のあいだに立つ。
-              </p>
-            </div>
-          </article>
+<div class="rule">
+<div class="rule-number">一</div>
+ユーザーを追いかけない。<br>
+プロダクトを置く。
+</div>
 
-          <article class="panel visual-card">
-            <img
-              src="./assets/images/saphiness-kv-02.PNG"
-              alt="Yamabuki Satsuki surfing"
-            />
-            <div class="visual-card__body">
-              <p class="visual-card__title">Action</p>
-              <p class="visual-card__text">
-                波に乗るのではなく、波へ応じる。
-                低重心の動きで切り取る。
-              </p>
-            </div>
-          </article>
+<div class="rule">
+<div class="rule-number">二</div>
+押し売り営業をしない。
+</div>
 
-          <article class="panel visual-card">
-            <img
-              src="./assets/images/saphiness-kv-03.PNG"
-              alt="Yamabuki Satsuki looking at the wave"
-            />
-            <div class="visual-card__body">
-              <p class="visual-card__title">Observation</p>
-              <p class="visual-card__text">
-                まだ触れていない。
-                しかし、もう感じている。
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="rule">
+<div class="rule-number">三</div>
+バックエンドサービスを実装しない。
+</div>
 
-    <section id="character" class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="section__kicker">Character</span>
-          <h2>山吹五月</h2>
-          <p class="section__lead">
-            波を読む者。
-            海の家で、海とサーファーのあいだに立つ。
-          </p>
-        </div>
+<div class="rule">
+<div class="rule-number">四</div>
+マスターピースのみ公開する。
+</div>
 
-        <div class="character">
-          <article class="panel character__image">
-            <img
-              src="./assets/images/saphiness-kv-03.PNG"
-              alt="Yamabuki Satsuki at the beach with surfboard"
-            />
-          </article>
+<div class="rule">
+<div class="rule-number">五</div>
+SOVATの意味を忘れない。
+</div>
 
-          <div class="character__body">
-            <article class="panel">
-              <p>
-                山吹五月（ヤマブキサツキ）。
-                18歳。海の家の娘。
-                空手を習っており、波を見る目と、現場で働く身体を持つ。
-                家業の海の家で、サーファー向けアドバイザーの仕事を手伝っている。
-              </p>
-            </article>
+</div>
 
-            <div class="character__meta">
-              <article class="panel meta-item">
-                <strong>Skin / Hair / Eyes</strong>
-                <span>褐色 / 栗毛の長髪 / 黒い瞳</span>
-              </article>
 
-              <article class="panel meta-item">
-                <strong>Style</strong>
-                <span>Tシャツ、デニムのホットパンツ、水着</span>
-              </article>
+<div class="section">
 
-              <article class="panel meta-item">
-                <strong>Discipline</strong>
-                <span>空手</span>
-              </article>
+<div class="section-title">
+CURRENT PROJECT
+</div>
 
-              <article class="panel meta-item">
-                <strong>Spirit</strong>
-                <span>嫌いなものは、ごまかし</span>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="project-title">
+Saphiness
+</div>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div>© SOVAT</div>
-      <div class="site-footer__links">
-        <a href="#about">About</a>
-        <a href="#project">Saphiness</a>
-        <a href="#character">Character</a>
-      </div>
-    </div>
-  </footer>
+<img class="project-visual" src="assets/images/saphiness-kv-01.PNG" alt="Saphiness">
+
+<div class="project-text">
+波乗りの感覚を、触覚で呼び戻す。<br>
+スマートフォンの振動を使った触覚エンターテインメント。
+</div>
+
+</div>
+
+
+<footer>
+© SOVAT
+</footer>
+
+</main>
+
 </body>
+
 </html>
