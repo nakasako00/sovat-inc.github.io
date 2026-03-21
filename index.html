@@ -1,99 +1,227 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOVAT Inc.</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #ffffff;
-      color: #111;
-      text-align: center;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+<title>SOVAT</title>
+<meta name="description" content="SOVAT">
 
-    .logo {
-      width: 120px;
-      margin-bottom: 24px;
-    }
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.PNG">
 
-    h1 {
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #666;
-      margin-bottom: 12px;
-    }
+<style>
 
-    h2 {
-      font-size: 32px;
-      margin: 0 0 32px;
-    }
+body{
+margin:0;
+background:#ffffff;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+text-align:center;
+color:#111;
+}
 
-    .kv {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 24px;
-    }
+main{
+max-width:640px;
+margin:auto;
+padding:80px 24px;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
+a{
+color:inherit;
+text-decoration:none;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
-    }
+.logo{
+width:200px;
+margin-bottom:32px;
+}
 
-    p {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-top: 32px;
-    }
+.title{
+font-size:28px;
+font-weight:600;
+letter-spacing:0.08em;
+}
 
-    @media (min-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+.tagline{
+margin-top:16px;
+font-size:14px;
+color:#666;
+}
+
+.section{
+margin-top:72px;
+}
+
+.section-title{
+font-size:16px;
+font-weight:600;
+letter-spacing:0.12em;
+margin-bottom:28px;
+}
+
+.sovat-letters{
+line-height:2.1;
+font-size:18px;
+}
+
+.rule{
+margin-top:28px;
+line-height:1.9;
+}
+
+.rule-number{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.bridge{
+margin-top:72px;
+line-height:1.9;
+}
+
+.project-title{
+font-size:22px;
+font-weight:600;
+letter-spacing:0.04em;
+margin-bottom:16px;
+}
+
+.project-text{
+line-height:1.9;
+margin-bottom:24px;
+}
+
+.project-link{
+display:inline-block;
+padding:12px 22px;
+border:1px solid #111;
+font-size:14px;
+letter-spacing:0.08em;
+transition:background 0.2s ease,color 0.2s ease;
+}
+
+.project-link:hover{
+background:#111;
+color:#fff;
+}
+
+footer{
+margin-top:80px;
+font-size:12px;
+color:#999;
+}
+
+</style>
+
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- ロゴ -->
-    <img src="enso.PNG" alt="SOVAT Logo" class="logo">
+<main>
 
-    <!-- タイトル -->
-    <h1>CURRENT PROJECT</h1>
-    <h2>Suffiness</h2>
+<img class="logo" src="enso.PNG" alt="SOVAT">
 
-    <!-- メインビジュアル -->
-    <img src="assets/images/suffiness-kv-01.PNG" class="kv" alt="Suffiness Key Visual">
+<div class="title">
+SOVAT
+</div>
 
-    <!-- サブビジュアル -->
-    <div class="gallery">
-      <img src="assets/images/suffiness-kv-02.PNG" alt="">
-      <img src="assets/images/suffiness-kv-03.PNG" alt="">
-    </div>
+<div class="tagline">
+Make happiness.
+</div>
 
-    <!-- コピー -->
-    <p>
-      波乗りの感覚を、触覚で呼び戻す。<br>
-      スマートフォンの振動を使った触覚エンターテインメント。
-    </p>
 
-  </div>
+<div class="section">
+
+<div class="section-title">
+SOVATとは
+</div>
+
+<div class="sovat-letters">
+
+S　Single Player<br>
+O　Offline<br>
+V　Valuable<br>
+A　Application<br>
+T　Technology
+
+</div>
+
+<p>
+SOVATはこれらの頭文字を合わせた概念である。
+</p>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+SOVAT 五ヶ条
+</div>
+
+<div class="rule">
+<div class="rule-number">一</div>
+ユーザーを追いかけない。<br>
+プロダクトを置く。
+</div>
+
+<div class="rule">
+<div class="rule-number">二</div>
+押し売り営業をしない。
+</div>
+
+<div class="rule">
+<div class="rule-number">三</div>
+バックエンドサービスを実装しない。
+</div>
+
+<div class="rule">
+<div class="rule-number">四</div>
+マスターピースのみ公開する。
+</div>
+
+<div class="rule">
+<div class="rule-number">五</div>
+SOVATの意味を忘れない。
+</div>
+
+</div>
+
+
+<div class="bridge">
+SOVATは、これを作るための概念である。
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+CURRENT PROJECT
+</div>
+
+<div class="project-title">
+Suffiness
+</div>
+
+<div class="project-text">
+波乗りの感覚を、触覚で呼び戻す。
+</div>
+
+<a class="project-link" href="suffiness.html">
+VIEW PROJECT
+</a>
+
+</div>
+
+
+<footer>
+© SOVAT
+</footer>
+
+</main>
+
 </body>
+
 </html>
